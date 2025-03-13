@@ -12,9 +12,7 @@ class PostDetailWidget extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
           leading: IconButton(
-              onPressed: () {
-                context.pop();
-              },
+              onPressed: () => context.go('/'),
               icon: const Icon(Icons.arrow_back))),
       body: Center(
         child: Padding(
