@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:postogram/feature/post_grid/domain/entity/post_entity.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 class PostDetailWidget extends StatelessWidget {
   const PostDetailWidget({required this.post, super.key});
@@ -19,8 +20,10 @@ class PostDetailWidget extends StatelessWidget {
           padding: const EdgeInsets.all(16),
           child: ClipRRect(
             borderRadius: BorderRadius.circular(48),
-            child: Image.network(
-              post.imageUrl,
+            child: CachedNetworkImage(
+              imageUrl: post.imageUrl,
+              placeholder: (context, url) => const CircularProgressIndicator(),
+              errorWidget: (context, url, error) => const Icon(Icons.error),
               width: double.infinity,
               height: double.infinity,
               fit: BoxFit.fill,
