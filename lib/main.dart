@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:postogram/navigation/postogram_router.dart';
+import 'package:postogram/uikit/theme/postogram_theme.dart';
 
 void main() {
-  runApp(const MainApp());
+  runApp(const PostogramApp());
 }
 
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
+class PostogramApp extends StatelessWidget {
+  const PostogramApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
-      ),
+    return MaterialApp.router(
+      routerConfig: PostogramRouter.router, // Используем go_router
+      theme: PostogramThemeData.lightTheme,
+      darkTheme: PostogramThemeData.darkTheme,
     );
   }
 }
