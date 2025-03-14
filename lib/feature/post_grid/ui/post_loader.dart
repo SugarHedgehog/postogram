@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:postogram/feature/post_grid/ui/loading_screen.dart';
 import 'package:postogram/feature/post_grid/ui/post_grid_widget_model.dart';
 import 'package:postogram/feature/post_grid/ui/widget/post_card.dart';
 
@@ -12,9 +13,7 @@ class PostsLoader extends StatelessWidget {
     return ValueListenableBuilder(
       valueListenable: wm.posts,
       builder: (_, posts, __) => posts.isEmpty
-          ? const Center(
-              child: CircularProgressIndicator(),
-            )
+          ? const LoadingScreen()
           : GridView.builder(
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 3,

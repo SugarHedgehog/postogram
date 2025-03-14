@@ -1,17 +1,12 @@
 import 'package:go_router/go_router.dart';
-import 'package:postogram/feature/loading/loading_screen.dart';
 import 'package:postogram/feature/post_detail/post_detail_widget.dart';
 import 'package:postogram/feature/post_grid/di/post_inherited.dart';
 import 'package:postogram/feature/post_grid/domain/entity/post_entity.dart';
 
 class PostogramRouter {
   static final GoRouter router = GoRouter(
-    initialLocation: '/loading',
+    initialLocation: '/',
     routes: [
-      GoRoute(
-        path: '/loading',
-        builder: (context, state) => const LoadingScreen(),
-      ),
       GoRoute(
         path: '/',
         builder: (context, state) => const PostGridFlow(),

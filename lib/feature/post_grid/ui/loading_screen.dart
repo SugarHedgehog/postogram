@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 class LoadingScreen extends StatefulWidget {
   const LoadingScreen({super.key});
@@ -12,19 +11,16 @@ class _LoadingScreenState extends State<LoadingScreen> {
   @override
   void initState() {
     super.initState();
-    // Simulate a time-consuming task (e.g., loading data) for the splash screen.
-    // Replace this with your actual data loading logic.
     Future.delayed(
-      const Duration(seconds: 2),() {
-        context.go('/');
+      //совершенно не нужный костыль, чтобы просто посмотреть на кота!
+      const Duration(seconds: 6),() {
       },
     );
   }
-
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Image.asset(
+    return Center(
+      child: Image.asset(
         "assets/images/loading.jpg",
         fit: BoxFit.fitWidth,
         width: double.infinity,
