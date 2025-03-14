@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:postogram/feature/post_grid/ui/post_grid_widget_model.dart';
-import 'package:postogram/feature/post_grid/ui/widget/post_card.dart';
+import 'package:postogram/feature/post_grid/ui/post_loader.dart';
 import 'package:postogram/uikit/widget/postogram_app_bar.dart';
 
 class PostGridWidget extends StatefulWidget {
@@ -47,22 +47,8 @@ class _Body extends StatelessWidget {
       child: Column(
         children: [
           Expanded(
-            child: ValueListenableBuilder(
-              valueListenable: wm.posts,
-              builder: (_, posts, __) => posts.isEmpty
-                  ? const Center(
-                      child: CircularProgressIndicator(),
-                    )
-                  : GridView.builder(
-                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 3,
-                      ),
-                      itemCount: posts.length,
-                      itemBuilder: (_, index) => PostCard(
-                        post: posts[index],
-                        onPostOpen: () => wm.openDetails(posts[index]),
-                      ),
-                    ),
+            child: PostsLoader(
+              wm: wm,
             ),
           ),
         ],
