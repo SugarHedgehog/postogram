@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:postogram/feature/post_grid/ui/loading_screen.dart';
+import 'package:postogram/feature/post_grid/ui/loading_widget.dart';
 import 'package:postogram/feature/post_grid/ui/post_grid_widget_model.dart';
 import 'package:postogram/feature/post_grid/ui/widget/post_card.dart';
 
